@@ -15,10 +15,15 @@ class _BillSplitterState extends State<BillSplitter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Bill Splitter"),
+        centerTitle: true,
+        backgroundColor: Colors.orange,
+      ),
       body: Container(
-        margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.1),
+        //margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.1),
         alignment: Alignment.center,
-        color: Colors.white,
+        //color: Colors.orange.withOpacity(0.15),
         child: ListView(
           scrollDirection: Axis.vertical,
           padding: EdgeInsets.all(20.5),
@@ -27,7 +32,7 @@ class _BillSplitterState extends State<BillSplitter> {
               width: 150,
               height: 150,
               decoration: BoxDecoration(
-                  color: Colors.purple.withOpacity(0.15),
+                  color: Colors.orange.withOpacity(0.15),
                   borderRadius: BorderRadius.circular(12.0)),
               child: Center(
                 child: Column(
@@ -36,14 +41,14 @@ class _BillSplitterState extends State<BillSplitter> {
                     Text(
                       "Total Per Person",
                       style: TextStyle(
-                          color: Colors.purple.shade600, fontSize: 18.0),
+                          color: Colors.orange.shade600, fontSize: 18.0),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(12.0),
                       child: Text(
                         "\$ ${totalPerPerson(_billAmount, _tip.toDouble(), _personCounter.toDouble())}",
                         style: TextStyle(
-                            color: Colors.purple.shade600,
+                            color: Colors.orange.shade600,
                             fontSize: 28.0,
                             fontWeight: FontWeight.w900),
                       ),
@@ -56,7 +61,7 @@ class _BillSplitterState extends State<BillSplitter> {
               margin: EdgeInsets.only(top: 20.0),
               padding: EdgeInsets.all(12.0),
               decoration: BoxDecoration(
-                  color: Colors.transparent,
+                  color: Colors.orange.withOpacity(0.1),
                   border: Border.all(
                       color: Colors.blueGrey.shade100,
                       style: BorderStyle.solid),
@@ -67,7 +72,7 @@ class _BillSplitterState extends State<BillSplitter> {
                     keyboardType:
                         TextInputType.numberWithOptions(decimal: true),
                     style: TextStyle(
-                        color: Colors.purple.shade600, fontSize: 18.0),
+                        color: Colors.orange.shade600, fontSize: 18.0),
                     decoration: InputDecoration(
                       prefixText: "Bill Amount  ",
                       //prefixIcon: Icon(Icons.attach_money)
@@ -86,7 +91,7 @@ class _BillSplitterState extends State<BillSplitter> {
                       Text(
                         "Split",
                         style: TextStyle(
-                            color: Colors.grey.shade700, fontSize: 15.0),
+                            color: Colors.grey.shade700, fontSize: 20.0),
                       ),
                       Row(
                         children: [
@@ -103,13 +108,13 @@ class _BillSplitterState extends State<BillSplitter> {
                               height: 40.0,
                               margin: EdgeInsets.all(10.0),
                               decoration: BoxDecoration(
-                                  color: Colors.purple.withOpacity(0.15),
+                                  color: Colors.orange.withOpacity(0.15),
                                   borderRadius: BorderRadius.circular(7.0)),
                               child: Center(
                                 child: Text(
                                   "-",
                                   style: TextStyle(
-                                    color: Colors.purple.shade400,
+                                    color: Colors.orange.shade400,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 24.0,
                                   ),
@@ -120,7 +125,7 @@ class _BillSplitterState extends State<BillSplitter> {
                           Text(
                             "$_personCounter",
                             style: TextStyle(
-                                color: Colors.purple.shade400, fontSize: 21.0),
+                                color: Colors.orange.shade400, fontSize: 21.0),
                           ),
                           InkWell(
                             onTap: () {
@@ -133,13 +138,13 @@ class _BillSplitterState extends State<BillSplitter> {
                               height: 40.0,
                               margin: EdgeInsets.all(10.0),
                               decoration: BoxDecoration(
-                                  color: Colors.purple.withOpacity(0.15),
+                                  color: Colors.orange.withOpacity(0.15),
                                   borderRadius: BorderRadius.circular(7.0)),
                               child: Center(
                                 child: Text(
                                   "+",
                                   style: TextStyle(
-                                    color: Colors.purple.shade400,
+                                    color: Colors.orange.shade400,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 22.0,
                                   ),
@@ -157,14 +162,14 @@ class _BillSplitterState extends State<BillSplitter> {
                       Text(
                         "Tip",
                         style: TextStyle(
-                            color: Colors.grey.shade700, fontSize: 15.0),
+                            color: Colors.grey.shade700, fontSize: 20.0),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(18.0),
                         child: Text(
                           "\$ ${(totaltipCalculator(_tip.toDouble(), _billAmount)).toStringAsFixed(2)}",
                           style: TextStyle(
-                              color: Colors.purple.shade400,
+                              color: Colors.orange.shade400,
                               fontWeight: FontWeight.bold,
                               fontSize: 24.0),
                         ),
@@ -176,8 +181,8 @@ class _BillSplitterState extends State<BillSplitter> {
                       Text(
                         "$_tip%",
                         style: TextStyle(
-                            color: Colors.purple.shade400,
-                            fontSize: 20.0,
+                            color: Colors.orange.shade400,
+                            fontSize: 25.0,
                             fontWeight: FontWeight.bold),
                       ),
                       Slider(
@@ -190,7 +195,7 @@ class _BillSplitterState extends State<BillSplitter> {
                         min: 0,
                         max: 100,
                         inactiveColor: Colors.grey,
-                        activeColor: Colors.purple.shade400,
+                        activeColor: Colors.orange.shade400,
                         divisions: 10,
                       )
                     ],
